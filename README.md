@@ -1,13 +1,13 @@
 # RuWordly-Telegram-Bot
 
-## About bot
+## About the bot.
 This is telegram-bot based in aiogram library with two mains functions:
 
-1. Playing in Wordly
-2. Helps with solving Wordly in others services
+1. Play in Wordly
+2. Help to solve Wordly in other services
 
-Bot contain dictionary with russian 5-length noun words, but it can be replaced with other launguage words. Dictionary also contain weight of all words, that used for sort output. In your language dictionary you can replace weight on 0.
-Current russian list of words made by parsing site https://ru.wiktionary.org with beatifulsoap library and it's not include in that project. You may use your own way to get list of words. Weight is count of words in random free text, and it can be update. For this data I found text in free source, split text on words, get it normal form, found normal form in vocabulary and incriment weight. Weigth used for sort variants in help-mode - rare words in the end of list.
+This bot contains Dictionary with 5-length russian language nouns, but it can be replaced with other launguage. The Dictionary also contains the weight of all words, that used for sort output. You can replace the weight to 1 in your language dictionary.
+The current list of russian words was made by parsing site https://ru.wiktionary.org with script based on Beatifulsoap library and it's not included in this project. You may use your own way to get list of words.The weight - is a count of words in a free random text, and it can be updated by you. For this dictionary I found texts in a free source, then split them on words, got the normal form, and found normal form in dictionary and after that incrimented word's weight. The weigth used to sort words variants in a help-mode. Rare words are placed at the end of the list.
 
 ## Install
 For install bot get token from Bot-Father, create file 'config' with code:
@@ -24,17 +24,17 @@ python3 main.py
 ```
 
 ## Localization
-If you need localization, you should change 'words.csv' on your vocabulary with the same format ('word,weight'). If you don't have weight, place 1 in vocabularu, but your variants being without sort of rarest. You also need replace text messages in file 'text_message.py'. It containts dict with all messages and buttons names. Change messages based on english key in dict.
+If you need to change localization, so you should change 'words.csv' on your vocabulary with the same format ('word,weight'). If you don't have weight, place 1 in vocabulary, but your variants won't be sorted by rarity. You also need replace text messages in file 'text_message.py'. It containts dict with all messages and button names. Change messages based on English key in dict.
 
 ## How to use
-When you start bot, it ask you mode that you like. There is two mods - wordly game and help with wordly game.
+There are two modes - Wordly game and Help with wordly game. Please choose one of them.
 
-### Wrodly game mode
-Bot get one word from vocabulary with non-zero weight (if you don't have weight in your vocabulary, you possible play in hard-mode Wordly with ultra-rare words)
-Player input 5-letter noun word. Bot generate code of accordance for than word and generate image with result, that send to user. User have 6 tries. If player don't guess answer, bot send lose message, end game and go to start screen with buttons
+### Wordly game mode
+The Bot gets one word from vocabulary with non-zero weight (if you don't have weight in your vocabulary, probably you are playing in a hard-mode Wordly with ultra-rare words).
+Player inputs 5-letter noun. The Bot generates code of accordance for that word and generates result image and then send it to player. Player has 6 tries. If player doesn't guess the answer, the bot sends him lose message, ends game and goes to the Start screen with buttons.
 
 ### Help with wordly game
-Bot wait messages of two types. First message should be 5-letter non words, that user input in wordly game in other system (site or app). Other system show user answer - colored word. User should code that image and send code to bot - it was second message.
+The Bot waits for messages of two types. First message should contain 5-letter noun which player inputed in wordly game in other system (site or app). Other system shows user answer - colored word. Player should code that image and send code to the bot - it is a second message.
 Code is easy.  
 Grey letters mark as 0,  
 white letters as 1,  
@@ -43,4 +43,4 @@ yellow letters as 2
 For example:  
 ![example](https://github.com/MrGovorun/RuWordly-Telegram-Bot/blob/main/example.png "example")   
 
-If all correct, bot send variants sorted with weight. User can choose word from variants or imagine it yourself. Then user put this word in other system and put again word in system answer in bot. Repeat until count of variants should be less than 2.
+If everything is correct, the bot will send you the variants sorted by weight. Player can choose word from variants or invent it by himself. Repeat it until number of variants would be less than 2.
